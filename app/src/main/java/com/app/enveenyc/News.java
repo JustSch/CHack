@@ -13,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.app.enveenyc.ui.main.SectionsPagerAdapter;
 
@@ -32,8 +36,26 @@ public class News extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        WebView htmlWebView = (WebView)findViewById(R.id.webView);
+        htmlWebView.setWebViewClient(new CustomWebViewClient());
+        WebSettings webSetting = htmlWebView.getSettings();
+        webSetting.setJavaScriptEnabled(true);
+        webSetting.setDisplayZoomControls(true);
+        webSetting.setAllowContentAccess(true);
+        webSetting.setAppCacheEnabled(true);
+        webSetting.setDomStorageEnabled(true);
+        webSetting.setUseWideViewPort(true);
+        htmlWebView.loadUrl("https://www.weforum.org/agenda/2018/09/chart-of-the-day-in-just-one-day-volunteers-picked-up-20-million-pieces-of-trash-from-beaches");
     }
-    public void goToAnActivity(View view) {
+    private class CustomWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
+    }
+
+        public void goToAnActivity(View view) {
         Intent intent = new Intent(this, UserProfile.class);
         startActivity(intent);
     }
