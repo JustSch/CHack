@@ -1,6 +1,6 @@
 Concept for the CUNY Hackathon 2019
 # enveeNYC
-enveeNYC is an android mobile application that encourages uses to volunteer to help the environment locally around New York City!
+enveeNYC is an android mobile application that encourages users to volunteer to help the environment locally around New York City!
 # Features
 - This application allows users to sign up for free accounts as volunteers with the incentive to volunteer through engaging tasks such as "recycling or picking up litter from a park" in exchange for points that go towards rewards they can earn which they can redeem such as "you earned a free grande drink at Starbucks!"
 
